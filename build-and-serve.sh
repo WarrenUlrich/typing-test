@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Building TypeScript..."
-tsc --pretty --project ./cmd/server/web
+tsc --project ./cmd/server/web
 
 echo "Minifying JS with ESBuild..."
 JS_DIR="./cmd/server/web/static/js"
