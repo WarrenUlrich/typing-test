@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Typing Test</title>
+    <style>
+        .correct,
+        .incorrect,
+        .remaining {
+            white-space: pre-wrap;
+            word-spacing: normal;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        .remaining {
+            color: grey;
+        }
+
+        #typingTestContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        body {
+            background-color: #242222;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="typingTestContainer">
+        <span id="correctText" class="correct"></span>
+        <span id="remainingText" class="remaining"></span>
+    </div>
+    <!-- <span id="wpmText"></span> -->
+    <script type="module" src="/static/js/home-min.js"></script>
+</body>
+
+</html>
