@@ -4,7 +4,7 @@ echo "Building TypeScript..."
 tsc --project ./cmd/server/web
 
 echo "Minifying JS with ESBuild..."
-JS_DIR="./cmd/server/web/static/js"
+JS_DIR="./cmd/server/web/static/compiled-js"
 
 for file in "$JS_DIR"/*.js; do
     # Check if the file is a regular file

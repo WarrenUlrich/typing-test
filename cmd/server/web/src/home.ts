@@ -1,15 +1,15 @@
 import TypingTest from "./typing_test.js";
 
-let typingTest = TypingTest.randomWordTest(10);
+let typingTest = await TypingTest.randomWordTest(10);
 const correctTextElement = document.getElementById('correctText') as HTMLElement;
 const remainingTextElement = document.getElementById('remainingText') as HTMLElement;
 
 remainingTextElement.textContent = typingTest.getOriginalText();
 
-function handleTyping(event: KeyboardEvent) {
+async function handleTyping(event: KeyboardEvent) {
     if (typingTest.done()) {
         if (event.key == "Enter") {
-            typingTest = TypingTest.randomWordTest(10);
+            typingTest = await TypingTest.randomWordTest(10);
             correctTextElement.innerHTML = '';
             remainingTextElement.textContent = typingTest.getOriginalText();
         }
@@ -34,6 +34,4 @@ function handleTyping(event: KeyboardEvent) {
     remainingTextElement.textContent = originalText.substring(typedText.length);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.addEventListener('keydown', handleTyping);
-});
+document.addEventListener('keydown', handleTyping)

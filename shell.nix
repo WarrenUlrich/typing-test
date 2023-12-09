@@ -4,7 +4,6 @@ pkgs.mkShell rec {
   buildInputs = [
     pkgs.go
     pkgs.typescript
-    pkgs.esbuild
-    pkgs.html-minifier
+    pkgs.esbuild # for minifying js
   ];
 }

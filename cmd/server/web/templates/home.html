@@ -1,50 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typing Test</title>
-    <style>
-        .correct,
-        .incorrect,
-        .remaining {
-            white-space: pre-wrap;
-            word-spacing: normal;
-        }
-
-        .correct {
-            color: green;
-        }
-
-        .incorrect {
-            color: red;
-        }
-
-        .remaining {
-            color: grey;
-        }
-
-        #typingTestContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-
-        body {
-            background-color: #242222;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
-
 <body>
-    <div id="typingTestContainer">
+    <main id="typingTestContainer">
         <span id="correctText" class="correct"></span>
         <span id="remainingText" class="remaining"></span>
-    </div>
-    <script type="module" src="/static/js/home.js"></script>
+    </main>
+    <script type="module" src="/static/compiled-js/home.js"></script>
 </body>
-
 </html>

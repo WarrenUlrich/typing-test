@@ -1,3 +1,7 @@
+const wordList = await fetch('/data')
+            .then(response => response.json())
+            .then(data => data.data as Array<string>);
+
 export default class TypingTest {
     private originalText: string;
     private startTime: Date | null;
@@ -76,30 +80,10 @@ export default class TypingTest {
         return ((typedWords.length - errorCount) / typedWords.length) * 100;
     }
 
-    static randomWordTest(size: number): TypingTest {
-        const words = [
-            "apple", "tree", "book", "rain", "wind", "leaf", "fire",
-            "bird", "fish", "frog", "river", "rock", "hill", "cloud",
-            "star", "moon", "sun", "snow", "sand", "road", "city",
-            "farm", "wood", "leaf", "lake", "pond", "hill", "land",
-            "gold", "iron", "rice", "milk", "meat", "bean", "corn",
-            "cake", "tea", "soup", "juice", "bread",
-            "mountain", "ocean", "forest", "flower", "grass", "valley", "stream",
-            "butterfly", "eagle", "shark", "dolphin", "deer", "wolf", "bear",
-            "sky", "rainbow", "thunder", "lightning", "fog", "hail", "sleet",
-            "planet", "galaxy", "comet", "asteroid", "nebula", "black hole",
-            "canyon", "desert", "glacier", "volcano", "fjord", "cliff",
-            "copper", "silver", "diamond", "ruby", "emerald", "sapphire",
-            "wheat", "barley", "oat", "pea", "carrot", "tomato", "potato",
-            "cheese", "yogurt", "pasta", "honey", "jam", "cookie", "chocolate",
-            "coffee", "soda", "wine", "beer", "cocktail", "smoothie",
-            "village", "town", "metropolis", "harbor", "castle", "temple", "palace"
-        ];
-
-
+    static async randomWordTest(size: number): Promise<TypingTest> {
         let result = "";
         for (let i = 0; i < size; i++) {
-            result += words[Math.floor(Math.random() * words.length)];
+            result += wordList[Math.floor(Math.random() * wordList.length)];
             if (i < size - 1)
                 result += ' ';
         }

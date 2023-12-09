@@ -1,0 +1,37 @@
+:root {
+    --background-color: #242222;
+    --text-color: white;
+    --correct-text-color: green;
+    --incorrect-text-color: red;
+    --remaining-text-color: grey;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+#typingTestContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.correct, .incorrect, .remaining {
+    white-space: pre-wrap;
+    word-spacing: normal;
+}
+
+.correct {
+    color: var(--correct-text-color);
+}
+
+.incorrect {
+    color: var(--incorrect-text-color);
+}
+
+.remaining {
+    color: var(--remaining-text-color);
+}
