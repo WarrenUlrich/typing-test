@@ -1,5 +1,5 @@
 # omit the compiled-js
 web/static/compiled-js
 
-# omit the pre-build processed html,css, and js
-cmd/server/web/*
+# omit the embedded post-processed html, css, and js
+cmd/server/embed/web/*

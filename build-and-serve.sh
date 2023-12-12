@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SRC_DIR="./web"
-DEST_DIR="./cmd/server/web"
+DEST_DIR="./cmd/server/embed/web"
 JS_DIR="$SRC_DIR/static/compiled-js"
 CSS_DIR="$SRC_DIR/static/css"
 TEMPLATES_DIR="$SRC_DIR/templates"

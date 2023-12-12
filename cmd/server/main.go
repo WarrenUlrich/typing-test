@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 	"encoding/json"
+	"fmt"
 	"html/template"
 	"io"
 	"io/fs"
@@ -11,25 +12,26 @@ import (
 	"os"
 )
 
-//go:embed data
-//go:embed web/templates/*
-//go:embed web/static/*
+//go:embed embed/data
+//go:embed embed/web/templates/*
+//go:embed embed/web/static/*
 var embeddedFS embed.FS
 
 func main() {
-	templateFS, err := fs.Sub(embeddedFS, "web/templates")
+	fmt.Println("Starting")
+	templateFS, err := fs.Sub(embeddedFS, "embed/web/templates")
 	if err != nil {
 		log.Printf("Error creating sub filesystem for templates: %v", err)
 		os.Exit(1)
 	}
 
-	staticFS, err := fs.Sub(embeddedFS, "web/static")
+	staticFS, err := fs.Sub(embeddedFS, "embed/web/static")
 	if err != nil {
 		log.Printf("Error creating sub filesystem for static files: %v", err)
 		os.Exit(1)
 	}
 
-	dataFS, err := fs.Sub(embeddedFS, "data")
+	dataFS, err := fs.Sub(embeddedFS, "embed/data")
 	if err != nil {
 		log.Printf("Error creating sub filesystem for data files: %v", err)
 		os.Exit(1)
