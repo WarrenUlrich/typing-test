@@ -1,6 +1,6 @@
-const wordList = await fetch('/data')
+const wordList = await fetch('/words')
             .then(response => response.json())
-            .then(data => data.data as Array<string>);
+            .then(data => data as Array<string>);
 
 export default class TypingTest {
     private originalText: string;
