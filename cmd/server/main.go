@@ -13,8 +13,8 @@ import (
 )
 
 //go:embed embed/data
-//go:embed embed/web/templates/*
-//go:embed embed/web/static/*
+//go:embed embed/web/templates
+//go:embed embed/web/static
 var embeddedFS embed.FS
 
 func main() {

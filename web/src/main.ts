@@ -1,6 +1,9 @@
 import TypingTest from "./typing_test.js";
 
 let typingTest = await TypingTest.randomWordTest(10);
+
+let wpmValue = document.getElementById('wpmValue') as HTMLElement;
+
 const correctTextElement = document.getElementById('correctText') as HTMLElement;
 const remainingTextElement = document.getElementById('remainingText') as HTMLElement;
 
@@ -32,6 +35,12 @@ async function handleTyping(event: KeyboardEvent) {
 
     correctTextElement.innerHTML = displayText; // Use innerHTML since we're adding spans
     remainingTextElement.textContent = originalText.substring(typedText.length);
+
+    let wpm = typingTest.calculateWpm();
+    if (wpm) {
+        console.log("wpm: ", wpm);
+        wpmValue.innerHTML = wpm.toString();
+    }
 }
 
 document.addEventListener('keydown', handleTyping)

@@ -1,6 +1,6 @@
 const wordList = await fetch('/words')
-            .then(response => response.json())
-            .then(data => data as Array<string>);
+    .then(response => response.json())
+    .then(data => data as Array<string>);
 
 export default class TypingTest {
     private originalText: string;
@@ -21,22 +21,32 @@ export default class TypingTest {
             this.startTime = new Date();
         }
 
-        if (event.key === 'Backspace') {
-            this.typedText = this.typedText.slice(0, -1);
-        } else {
-            this.typedText += event.key;
+        const ignoredKeys = [
+            'Shift', 'Control', 'Alt',
+            'Meta', 'CapsLock', 'Tab',
+            'Escape', 'ArrowLeft', 'ArrowRight',
+            'ArrowUp', 'ArrowDown', 'F1', 
+            'F2', 'F3', 'F4', 
+            'F5', 'F6', 'F7', 
+            'F8', 'F9', 'F10', 
+            'F11', 'F12'
+        ];
+
+        if (!ignoredKeys.includes(event.key)) {
+            if (event.key === 'Backspace') {
+                this.typedText = this.typedText.slice(0, -1);
+            } else if (event.code === 'Space' && event.target === document.body) {
+                event.preventDefault();
+                this.typedText += event.key;
+            } else {
+                this.typedText += event.key;
+            }
         }
 
         if (this.done())
             this.endTime = new Date();
 
         return true;
-    }
-
-    reset(): void {
-        this.startTime = null;
-        this.endTime = null;
-        this.typedText = "";
     }
 
     getOriginalText(): string {

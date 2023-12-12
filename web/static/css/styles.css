@@ -1,6 +1,6 @@
 :root {
     --background-color: #242222;
-    --text-color: white;
+    --text-color: grey;
     --correct-text-color: green;
     --incorrect-text-color: red;
     --remaining-text-color: grey;
